@@ -1,5 +1,7 @@
 ---
 export const prerender = true;
+import { Image } from "astro:assets";
+import kindleImg from "../assets/kindle.png"; // Image is 1600x900
 ---
 
 <html lang="en">
@@ -29,6 +31,10 @@ export const prerender = true;
         a {
           display: block;
         }
+        img {
+          width: 100%;
+          height: auto;
+        }
       }
     </style>
   </head>
@@ -38,5 +44,17 @@ export const prerender = true;
     <a href="/page1/">Page 1</a>
     <a href="/page2/">Page 2</a>
     <a href="/page3/">Page 3</a>
+    <Image
+      src={kindleImg}
+      alt="Kindle reader held in hand displaying a random page from some book."
+      loading="eager"
+      fetchpriority="high"
+      widths={[320, 640, 960, 1200, kindleImg.width]}
+    >
+      sizes={
+        `(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${kindleImg.width}px`
+      }
+      />
+    </Image>
   </body>
 </html>
