@@ -8,7 +8,7 @@ export default defineConfig({
   adapter: vercel({
     imageService: true,
     imagesConfig: {
-      sizes: [320, 640, 960, 1200, 1600, 1800],
+      sizes: [320, 640, 960, 1200, 1599],
       domains: [],
     },
   }),

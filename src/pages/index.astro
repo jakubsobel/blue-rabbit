@@ -44,17 +44,14 @@ import kindleImg from "../assets/kindle.png"; // Image is 1600x900
     <a href="/page1/">Page 1</a>
     <a href="/page2/">Page 2</a>
     <a href="/page3/">Page 3</a>
+    <!-- Can't use 1600 here because of the bug, so let's use 1599 (also set in Vercel Image Optimisation config) -->
     <Image
       src={kindleImg}
       alt="Kindle reader held in hand displaying a random page from some book."
       loading="eager"
       fetchpriority="high"
-      widths={[320, 640, 960, 1200, kindleImg.width]}
-    >
-      sizes={
-        `(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${kindleImg.width}px`
-      }
-      />
-    </Image>
+      widths={[320, 640, 960, 1599]}
+      sizes="100vw"
+    />
   </body>
 </html>
