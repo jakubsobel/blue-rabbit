@@ -1,0 +1,2 @@
+1. Vercel Image Optimization problem: if widths[] has valiue that's >= native image size, respective srcsets will lack ?w param and Vercel's Image Optimization will return 400 (broken optimization in Astro codebase)
+1. Vercel Image Optimization problem: in the Astro codebase there's a closest sizes/Vercel config sizes matcher that works only on `src` byt not `srcset` values. Propose adding this feature.
