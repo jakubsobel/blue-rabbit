@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
-
 import vercel from "@astrojs/vercel/serverless";
+
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,7 +10,8 @@ export default defineConfig({
     imageService: true,
     imagesConfig: {
       sizes: [320, 640, 960, 1200, 1599],
-      domains: [],
-    },
+      domains: []
+    }
   }),
+  integrations: [react()]
 });
