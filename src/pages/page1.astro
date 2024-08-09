@@ -1,6 +1,9 @@
 ---
 export const prerender = true;
+import DemoReactComponent from "../components/DemoReactComponent";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Page 1" headerColor="green" />
+<BaseLayout title="Page 1" headerColor="green">
+  <DemoReactComponent />
+</BaseLayout>
