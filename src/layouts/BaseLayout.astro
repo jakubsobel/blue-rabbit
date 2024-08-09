@@ -1,0 +1,48 @@
+---
+export const prerender = true;
+const { headerColor, title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta
+      name="description"
+      content="Astro is a new kind of static site builder that delivers lightning-fast performance with a modern developer experience."
+    />
+    <style is:global>
+      /* Enable View Transition */
+      @view-transition {
+        navigation: auto;
+      }
+    </style>
+
+    <style lang="scss" define:vars={{ headerColor }}>
+      body {
+        h1 {
+          color: var(--headerColor);
+          text-decoration: underline;
+        }
+        a {
+          display: block;
+        }
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>{title}</h1>
+    <a href="/">Index</a>
+    <a href="/page1/">Page 1</a>
+    <a href="/page2/">Page 2</a>
+    <a href="/page3/">Page 3</a>
+    <slot />
+  </body>
+</html>

@@ -1,42 +1,6 @@
 ---
 export const prerender = true;
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-    <meta
-      name="description"
-      content="Astro is a new kind of static site builder that delivers lightning-fast performance with a modern developer experience."
-    />
-    <style is:global>
-      /* Enable View Transition */
-      @view-transition {
-        navigation: auto;
-      }
-    </style>
-
-    <style lang="scss">
-      body {
-        h1 {
-          color: blue;
-          text-decoration: underline;
-        }
-        a {
-          display: block;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Page 2</h1>
-    <a href="/">Index</a>
-    <a href="/page1/">Page 1</a>
-    <a href="/page2/">Page 2</a>
-    <a href="/page3/">Page 3</a>
-  </body>
-</html>
+<BaseLayout title="Page 2" headerColor="blue" />

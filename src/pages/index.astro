@@ -2,56 +2,17 @@
 export const prerender = true;
 import { Image } from "astro:assets";
 import kindleImg from "../assets/kindle.png"; // Image is 1600x900
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-    <meta
-      name="description"
-      content="Astro is a new kind of static site builder that delivers lightning-fast performance with a modern developer experience."
-    />
-    <style is:global>
-      /* Enable View Transition */
-      @view-transition {
-        navigation: auto;
-      }
-    </style>
-
-    <style lang="scss">
-      body {
-        h1 {
-          color: red;
-          text-decoration: underline;
-        }
-        a {
-          display: block;
-        }
-        img {
-          width: 100%;
-          height: auto;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Index</h1>
-    <a href="/">Index</a>
-    <a href="/page1/">Page 1</a>
-    <a href="/page2/">Page 2</a>
-    <a href="/page3/">Page 3</a>
-    <!-- Can't use 1600 here because of the bug, so let's use 1599 (also set in Vercel Image Optimisation config) -->
-    <Image
-      src={kindleImg}
-      alt="Kindle reader held in hand displaying a random page from some book."
-      loading="eager"
-      fetchpriority="high"
-      widths={[320, 640, 960, 1599]}
-      sizes="100vw"
-    />
-  </body>
-</html>
+<BaseLayout title="Index" headerColor="red">
+  <!-- Can't use 1600 here because of the bug, so let's use 1599 (also set in Vercel Image Optimisation config) -->
+  <Image
+    src={kindleImg}
+    alt="Kindle reader held in hand displaying a random page from some book."
+    loading="eager"
+    fetchpriority="high"
+    widths={[320, 640, 960, 1599]}
+    sizes="100vw"
+  />
+</BaseLayout>
