@@ -1,6 +1,20 @@
 ---
 export const prerender = true;
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { turso } from "../turso";
+
+const { rows } = await turso.execute("SELECT * FROM pages");
 ---
 
-<BaseLayout title="Page 2" headerColor="blue" />
+<BaseLayout title="Page 2" headerColor="blue">
+  <h2>List of pages</h2>
+  <ul>
+    {
+      rows.map((row) => (
+        <li>
+          {row.title} ({row.slug})
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
