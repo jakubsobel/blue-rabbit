@@ -20,29 +20,14 @@ const { headerColor, title } = Astro.props;
         navigation: auto;
       }
     </style>
-
-    <style lang="scss" define:vars={{ headerColor }}>
-      body {
-        h1 {
-          color: var(--headerColor);
-          text-decoration: underline;
-        }
-        a {
-          display: block;
-        }
-        img {
-          width: 100%;
-          height: auto;
-        }
-      }
-    </style>
+    <style lang="scss" define:vars={{ headerColor }}></style>
   </head>
   <body>
-    <h1>{title}</h1>
-    <a href="/">Index</a>
-    <a href="/page1/">Page 1</a>
-    <a href="/page2/">Page 2</a>
-    <a href="/page3/">Page 3</a>
+    <h1 class="text-3xl font-bold text-[--headerColor] underline">{title}</h1>
+    <a class="block" href="/">Index</a>
+    <a class="block" href="/page1/">Page 1</a>
+    <a class="block" href="/page2/">Page 2</a>
+    <a class="block" href="/page3/">Page 3</a>
     <slot />
   </body>
 </html>
