@@ -7,8 +7,8 @@ const { rows } = await turso.execute("SELECT * FROM pages");
 ---
 
 <BaseLayout title="Page 2" headerColor="blue">
-  <h2>List of pages</h2>
-  <ul>
+  <h2 class="dark:text-slate-200">List of pages</h2>
+  <ul class="dark:text-slate-400">
     {
       rows.map((row) => (
         <li>
