@@ -21,9 +21,29 @@ const { headerColor, title } = Astro.props;
       @view-transition {
         navigation: auto;
       }
+
+      @keyframes circle-show {
+        0% {
+          clip-path: circle(0% at 0% 0%);
+        }
+        100% {
+          clip-path: circle(calc(100% * sqrt(2)) at 0% 0%);
+        }
+      }
+
+      html:active-view-transition-type(theme) {
+        &::view-transition-old(root) {
+          animation: none;
+        }
+
+        &::view-transition-new(root) {
+          animation: 0.5s circle-show ease-in-out;
+        }
+      }
     </style>
     <style lang="scss" define:vars={{ headerColor }}></style>
     <script is:inline>
+      // TODO: Move theme logic to utils
       if (
         localStorage.theme === "dark" ||
         (!("theme" in localStorage) &&
